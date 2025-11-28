@@ -45,6 +45,12 @@
         </dependency>
 
         <dependency>
+            <groupId>a.syrov</groupId>
+            <artifactId>logging-starter</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+
+        <dependency>
             <groupId>io.projectreactor</groupId>
             <artifactId>reactor-test</artifactId>
             <scope>test</scope>

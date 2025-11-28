@@ -38,6 +38,7 @@
         <module>replay</module>
     </modules>
     <dependencies>
+
     </dependencies>
 
     <dependencyManagement>
@@ -49,6 +50,7 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
+
         </dependencies>
     </dependencyManagement>
 

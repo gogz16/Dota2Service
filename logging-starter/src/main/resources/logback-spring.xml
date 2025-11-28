@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<configuration>
+    <include resource = "org/springframework/boot/logging/logback/defaults.xml"/>
+    <include resource = "org/springframework/boot/logging/logback/console-appender.xml"/>
+    <springProperty scope="context" name="app" source="spring.application.name" defaultValue=""/>
+    <springProperty scope="context" name="logstashhost" source="logstash.host" defaultValue=""/>
+    <springProperty scope="context" name="logstashport" source="logstash.port" defaultValue="5000"/>
+    <springProperty scope="context" name="level" source="logback.logging.level" defaultValue="INFO"/>
+
+
+    <appender name="stash" class="net.logstash.logback.appender.LogstashUdpSocketAppender">
+        <host>${logstashhost}</host>
+        <!-- port is optional (default value shown) -->
+        <port>${logstashport}</port>
+        <!-- layout is required -->
+        <layout class="net.logstash.logback.layout.LogstashLayout"/>
+    </appender>
+
+    <root level="INFO">
+          <appender-ref ref="CONSOLE"/>
+          <appender-ref ref="stash"/>
+    </root>
+</configuration>

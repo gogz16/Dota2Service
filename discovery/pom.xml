@@ -39,7 +39,15 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+
+		<dependency>
+			<groupId>a.syrov</groupId>
+			<artifactId>logging-starter</artifactId>
+			<version>1.0.0</version>
+		</dependency>
 	</dependencies>
+
+
 
 	<build>
 		<plugins>
