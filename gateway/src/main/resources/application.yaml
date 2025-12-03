@@ -1,4 +1,18 @@
+server:
+  ssl:
+    key-store: keystore.p12
+    key-store-password: 123456
+    key-store-type: PKCS12
+    key-alias: tomcat
+    enabled: true
 spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id: 539421342744-jsihr232hj0e75rghuvutodiltu17e58.apps.googleusercontent.com
+            client-secret: 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
   cloud:
     gateway:
       routes:
@@ -24,3 +38,6 @@ eureka:
   instance:
     prefer-ip-address: true
     ip-address: 127.0.0.1
+logging:
+  level:
+    org.springframework.security: trace

@@ -19,7 +19,7 @@ public class TestController {
 
     @GetMapping()
     public String getReplay() {
-        Hero hero = apiClient.getHero(1L);
-        return "replay" + hero;
+      //  Hero hero = apiClient.getHero(1L);
+        return "Hello retard!))";
     }
 }
