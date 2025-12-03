@@ -3,6 +3,12 @@ server:
 spring:
   application:
     name: replay
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: https://accounts.google.com
+
 eureka:
   client:
     service-url:
@@ -10,3 +16,6 @@ eureka:
   instance:
     prefer-ip-address: true
     ip-address: 127.0.0.1
+#logging:
+#  level:
+#    root: trace
