@@ -4,6 +4,7 @@ import a.syrov.api.dao.UserRepository;
 import a.syrov.api.service.DotaUserDetailsService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
@@ -44,11 +45,11 @@ public class SecConfig {
     }
 
     @Bean
-    public DaoAuthenticationProvider authenticationProvider() { // тут был НЕ ДАО, а обычныйй
+    public AuthenticationProvider authenticationProvider() { // тут был НЕ ДАО, а обычныйй
         DaoAuthenticationProvider daoAuthenticationProvider = new DaoAuthenticationProvider();
         daoAuthenticationProvider.setUserDetailsService(userDetailsService());
         daoAuthenticationProvider.setPasswordEncoder(passwordEncoder());
-        return daoAuthenticationProvider; // Тут был каст (добавились скобки)
+        return daoAuthenticationProvider;
     }
 
     @Bean
