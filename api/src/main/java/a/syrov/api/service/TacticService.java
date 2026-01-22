@@ -19,8 +19,8 @@ public class TacticService {
         this.tacticMapper = tacticMapper;
     }
 
-    public Tactic createTactic(Tactic tactic) {
-        return tacticDAO.save(tactic);
+    public Tactic createTactic(TacticDTO tacticDTO) {
+        return tacticDAO.save(tacticMapper.toTactic(tacticDTO));
     }
 
     @Transactional

@@ -36,7 +36,6 @@ public class SecConfig {
                 .httpBasic(Customizer.withDefaults())
                 .formLogin(Customizer.withDefaults())
                 .build();
-
     }
 
     @Bean
@@ -45,7 +44,7 @@ public class SecConfig {
     }
 
     @Bean
-    public AuthenticationProvider authenticationProvider() { // тут был НЕ ДАО, а обычныйй
+    public AuthenticationProvider authenticationProvider() {
         DaoAuthenticationProvider daoAuthenticationProvider = new DaoAuthenticationProvider();
         daoAuthenticationProvider.setUserDetailsService(userDetailsService());
         daoAuthenticationProvider.setPasswordEncoder(passwordEncoder());

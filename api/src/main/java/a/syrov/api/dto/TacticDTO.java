@@ -2,6 +2,7 @@ package a.syrov.api.dto;
 
 
 import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.Size;
 import lombok.Data;
 
 import java.util.List;
@@ -9,15 +10,9 @@ import java.util.List;
 @Data
 public class TacticDTO {
     private Long id;
-//    @NotEmpty
+    @NotEmpty(message = "Не пустое!")
+    @Size(min = 2, max = 15, message = "Размер от {min} до {max}")
     private String name;
     private List<PickDTO> picks;
 
-//    public static TacticDTO from(Tactic tactic) {
-//        TacticDTO tacticDTO = new TacticDTO();
-//        tacticDTO.setId(tactic.getId());
-//        tacticDTO.setName(tactic.getName());
-//        tacticDTO.setPicks(tactic.getPicks().stream().map(PickDTO::from).toList());
-//        return tacticDTO;
-//    }
 }

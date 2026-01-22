@@ -7,6 +7,7 @@ import a.syrov.api.entity.Tactic;
 import a.syrov.api.service.PickService;
 import a.syrov.api.service.TacticService;
 import jakarta.transaction.Transactional;
+import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -23,7 +24,7 @@ public class TacticController {
     }
 
     @PostMapping
-    public Tactic createTactic(@RequestBody Tactic tactic) {
+    public Tactic createTactic(@RequestBody @Valid TacticDTO tactic) {
         return tacticService.createTactic(tactic);
     }
 

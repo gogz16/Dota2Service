@@ -16,7 +16,7 @@ logging:
   level:
     org.hibernate: TRACE
 server:
-  port: 0
+  port: 33333
 eureka:
   client:
     service-url:

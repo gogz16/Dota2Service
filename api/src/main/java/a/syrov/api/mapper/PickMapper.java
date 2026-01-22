@@ -15,4 +15,11 @@ public interface PickMapper {
     PickDTO pickToPickDTO(Pick pick);
 
     List<PickDTO> pickToPickDTO(List<Pick> picks);
+
+    @Mapping(target = "hero.id", source = "heroId")
+    @Mapping(target = "player.id", source = "playerId")
+    Pick fromDto(PickDTO pickDTO);
+
+    List<Pick> fromListDto(List<PickDTO> pickDTOs);
+
 }
