@@ -6,6 +6,7 @@ import a.syrov.api.service.HeroService;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Map;
 
 @RestController
@@ -18,7 +19,7 @@ public class HeroController {
         this.heroService = heroService;
         this.openDotaApiClient = openDotaApiClient;
     }
-
+    // все герои из OpenDota
     @GetMapping()
     @PreAuthorize("hasAnyAuthority('ADMIN')")
     public Map<Integer, Hero> getOpenDotaHero() {
@@ -36,4 +37,20 @@ public class HeroController {
     public Hero saveHero(@RequestBody Hero hero) {
         return heroService.save(hero);
     }
+
+    // получить всех героев из БД со способностями (сначала заимпортить героев и способности надо)
+    @GetMapping("/db")
+    @PreAuthorize("hasAnyAuthority('ADMIN')")
+    public List<Hero> getHeroesFromDb() {
+        return heroService.getAllHeroes();
+    }
+
+    // массовое сохранение героев из OpenDota
+    @PostMapping("/import")
+    @PreAuthorize("hasAnyAuthority('ADMIN')")
+    public String importHeroes() {
+        int count = heroService.saveAllFromOpenDota();
+        return "Saved " + count + " heroes";
+    }
+
 }
