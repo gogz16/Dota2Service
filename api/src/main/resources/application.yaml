@@ -1,4 +1,4 @@
-
+db_init: true # вкл\откл ранеров при старте приложения
 spring:
   application:
     name: api
@@ -14,7 +14,7 @@ spring:
     open-in-view: false
 logging:
   level:
-    org.hibernate: TRACE
+    org.hibernate: INFO
 server:
   port: 33333
 eureka:
